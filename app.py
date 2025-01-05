@@ -20,7 +20,7 @@ def predict():
     try:
         # Validar que el input cumple con el formato
         data = request.form['data']
-        if not re.match(r'^-?\d+(\.\d+)?(,-?\d+(\.\d+)?){28}$', data):
+        if not re.match(r'^\s*-?\d+(\.\d+)?(\s*,\s*-?\d+(\.\d+)?){28}\s*$', data):
             return render_template('result.html', prediction="Formato inválido. Ingrese 29 valores separados por comas.")
         
         # Convertir el input en un array numpy
